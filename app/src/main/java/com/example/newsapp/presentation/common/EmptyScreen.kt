@@ -1,7 +1,6 @@
 package com.example.newsapp.presentation.common
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.view.animation.AlphaAnimation
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.isSystemInDarkTheme

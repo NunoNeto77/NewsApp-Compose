@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.example.newsapp.domain.usecases.news.NewsUseCases
+import com.example.newsapp.util.Constants.NEWS_SOURCES
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -15,6 +16,6 @@ class HomeViewModel @Inject constructor(
     // cachedIn caches the paginated data within the viewModelScope,
     // ensuring that the fetched data survives configuration changes.
     val news = newsUseCases.getNewsUseCase(
-        sources = listOf("bbc-news", "abc-news", "al-jazeera-english")
+        sources = NEWS_SOURCES
     ).cachedIn(viewModelScope)
 }

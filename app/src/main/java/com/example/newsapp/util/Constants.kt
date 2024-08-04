@@ -12,4 +12,5 @@ object Constants {
 
     val NEWS_SOURCES = listOf("bbc-news", "abc-news", "al-jazeera-english")
 
+    const val NEWS_DATABASE_NAME = "news_db"
 }

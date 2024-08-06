@@ -8,7 +8,8 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.example.newsapp.domain.model.Article
 import com.example.newsapp.domain.model.Source
-import com.example.newsapp.presentation.details.DetailsScreen
+import com.example.newsapp.presentation.bookmark.BookmarkScreen
+import com.example.newsapp.presentation.bookmark.BookmarkViewModel
 import com.example.newsapp.presentation.onboarding.OnBoardingScreen
 import com.example.newsapp.presentation.onboarding.OnBoardingViewModel
 
@@ -51,9 +52,8 @@ fun NavGraph(
                     urlToImage = "https://media.wired.com/photos/6495d5e893ba5cd8bbdc95af/191:100/w_1280,c_limit/The-EU-Rules-Phone-Batteries-Must-Be-Replaceable-Gear-2BE6PRN.jpg"
                 )
 
-                DetailsScreen(article = article, event = {}) {
-
-                }
+                val viewModel: BookmarkViewModel = hiltViewModel()
+                BookmarkScreen(state = viewModel.state.value, navigate = {})
             }
         }
     }

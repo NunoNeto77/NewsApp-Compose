@@ -14,12 +14,18 @@ import com.example.newsapp.domain.model.Article
 import com.example.newsapp.presentation.Dimens.ExtraSmallPadding2
 import com.example.newsapp.presentation.Dimens.MediumPadding1
 
+
+// articles from database
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
     articles: List<Article>,
     onClick: (Article) -> Unit
 ) {
+
+    if (articles.isEmpty()) {
+        EmptyScreen()
+    }
 
     LazyColumn(
             modifier = modifier.fillMaxSize(),
@@ -33,6 +39,7 @@ fun ArticlesList(
         }
 }
 
+// articles from a remote source (api)
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
@@ -75,10 +82,17 @@ fun handlePagingResult(
             ShimmerEffect()
             false
         }
+
         error != null -> {
+            EmptyScreen(error = error)
+            false
+        }
+
+        articles.itemCount == 0 -> {
             EmptyScreen()
             false
         }
+
         else -> true
     }
 }

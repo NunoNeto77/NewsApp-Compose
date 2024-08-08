@@ -14,9 +14,12 @@ interface NewsDao {
     @Query("SELECT * FROM Article")
     fun getArticles(): Flow<List<Article>>
 
+    @Query("SELECT * FROM Article WHERE url=:url")
+    suspend fun getArticleByUrl(url: String): Article?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(article: Article)
 
-    @Delete()
+    @Delete
     suspend fun delete(article: Article)
 }

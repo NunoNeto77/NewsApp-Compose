@@ -46,7 +46,7 @@ fun DetailsScreen(
     ) {
         DetailsTopBar(
             onBackClick = navigateUp,
-            onBookmarkClick = { event(DetailsEvent.SaveArticle) },
+            onBookmarkClick = { event(DetailsEvent.UpsertDeleteArticle(article)) },
             onShareClick = {
                 Intent(Intent.ACTION_SEND).also {
                     it.putExtra(Intent.EXTRA_TEXT, article.url)

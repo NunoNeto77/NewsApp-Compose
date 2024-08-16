@@ -14,7 +14,7 @@ An Android app built with Jetpack Compose.
 # What was used?
 <ul>
   <li>Jetpack Compose</li>
-  <li>MVVM</li>
+  <li>MVI</li>
   <li>Dagger Hilt</li>
   <li>Retrofit</li>
   <li>Paging 3</li>
